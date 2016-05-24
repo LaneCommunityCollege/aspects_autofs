@@ -1,0 +1,30 @@
+---
+# tasks file for .
+- include: manageDebianPackages.yml
+  when: ansible_os_family == "Debian"
+  tags:
+    - aspects_autofs
+    - aspects_autofs_packages
+
+- name: "Set /etc/auto.master template"
+  template:
+    src: "etc-auto.master.j2"
+    dest: "/etc/auto.master"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart autofs
+  tags:
+    - aspects_autofs
+    - aspects_autofs_packages
+- name: "Set /etc/auto.misc template"
+  template:
+    src: "etc-auto.misc.j2"
+    dest: "/etc/auto.misc"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart autofs
+  tags:
+    - aspects_autofs
+    - aspects_autofs_packages

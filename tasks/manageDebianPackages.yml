@@ -1,0 +1,25 @@
+---
+- name: Debian - Set auto packages state with apt
+  when: ansible_os_family == "Debian" and item.value.state != 'default' and item.value.state != 'purged' and item.value.Debian is defined
+  apt:
+    pkg: "{{ item.value.Debian }}"
+    state: "{{ item.value.state }}"
+    update_cache: "yes"
+    cache_valid_time: "86400"
+  with_dict: aspects_autofs_packages
+  tags:
+    - aspects_autofs
+    - aspects_autofs_packages
+
+- name: Debian - Purge packages with state="purged" with apt
+  when: ansible_os_family == "Debian" and item.value.state == 'purged' and item.value.Debian is defined
+  apt:
+    pkg: "{{ item.value.Debian }}"
+    state: "absent"
+    purge: "yes"
+    update_cache: "yes"
+    cache_valid_time: "86400"
+  with_dict: aspects_autofs_packages
+  tags:
+    - aspects_autofs
+    - aspects_autofs_packages

@@ -1,0 +1,6 @@
+---
+- name: init autofs tasks
+  when: aspects_autofs_enabled == True
+  include: init.yml
+  tags:
+  - aspects_autofs

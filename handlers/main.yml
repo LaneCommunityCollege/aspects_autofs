@@ -1,0 +1,26 @@
+---
+- name: restart autofs
+  service:
+    name: "autofs"
+    state: "restarted"
+    enabled: "yes"
+  tags:
+  - aspects_autofs
+  - aspects_autofs_handlers
+
+- name: start autofs
+  service:
+    name: "autofs"
+    state: "started"
+    enabled: "yes"
+  tags:
+  - aspects_autofs
+  - aspects_autofs_handlers
+
+- name: stop autofs
+  service:
+    name: "autofs"
+    state: "stopped"
+  tags:
+  - aspects_autofs
+  - aspects_autofs_handlers

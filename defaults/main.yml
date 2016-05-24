@@ -1,0 +1,6 @@
+---
+aspects_autofs_enabled: False
+aspects_autofs_packages:
+  autofs:
+    state: "present"
+    Debian: "autofs"
