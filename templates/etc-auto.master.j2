@@ -15,7 +15,7 @@
 # Include /etc/auto.master.d/*.autofs
 # The included files must conform to the format of this file.
 #
-+dir:/etc/auto.master.d
+#+dir:/etc/auto.master.d
 #
 # Include central master map if it can be found using
 # nsswitch sources.
@@ -25,7 +25,7 @@
 # same will not be seen as the first read key seen takes
 # precedence.
 #
-+auto.master
+#+auto.master
 
 {% for mount in aspects_autofs_mounts|default({}) %}
 {{ aspects_autofs_mounts[mount].masterline }}
