@@ -10,13 +10,13 @@ Set ```hash_behaviour=merge``` in your ansible.cfg file.
 
 Role Variables
 --------------
-###aspects_autofs_enabled
+### aspects_autofs_enabled
 Default is False. Set to True to actually run the role.
 
-###aspects_autofs_packages
+### aspects_autofs_packages
 A dictionary of the packages that need to be installed for autofs to work.
 
-###aspects_autofs_mounts
+### aspects_autofs_mounts
 A dictionary of mounts.
 
 Example Playbook
