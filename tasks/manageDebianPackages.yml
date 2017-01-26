@@ -6,7 +6,7 @@
     state: "{{ item.value.state }}"
     update_cache: "yes"
     cache_valid_time: "86400"
-  with_dict: aspects_autofs_packages
+  with_dict: "{{ aspects_autofs_packages }}"
   tags:
     - aspects_autofs
     - aspects_autofs_packages
@@ -19,7 +19,7 @@
     purge: "yes"
     update_cache: "yes"
     cache_valid_time: "86400"
-  with_dict: aspects_autofs_packages
+  with_dict: "{{ aspects_autofs_packages }}"
   tags:
     - aspects_autofs
     - aspects_autofs_packages
