@@ -1,7 +1,7 @@
 aspects_autofs
 =========
 
-A role to manage autofs mounts. Ubuntu only.
+A role to manage autofs mounts.
 
 Requirements
 ------------
@@ -19,6 +19,18 @@ A dictionary of the packages that need to be installed for autofs to work.
 ### aspects_autofs_mounts
 A dictionary of mounts.
 
+#### aspects_autofs_mounts.masterline
+The configuration for the mount that goes in ```/etc/auto.master```.
+
+#### aspects_autofs_mounts.miscline
+The configuration for the mount that goes in ```/etc/auto.misc```.
+
+### aspects_autofs_master_line_default_enabled
+Use the ```aspects_autofs_master_line_default``` value in ```/etc/auto.master``` or not.
+
+### aspects_autofs_master_line_default
+A default line to place in the ```/etc/auto.master``` configuration file. Defaults to: ```/- /etc/auto.misc --timeout 60```
+
 Example Playbook
 ----------------
 
@@ -32,6 +44,17 @@ Example Playbook
       roles:
          - { role: aspects_autofs }
 ```
+
+Notes
+-----
+
+On CentOS 7, if you are using NFS home mounts, you may need to modify SELinux settings. Specificially, run:
+
+```
+setsebool -P use_nfs_home_dirs 1
+```
+
+I discovered this when ssh was returning a public key error when I tried to ssh in using ssh keys.
 
 License
 -------

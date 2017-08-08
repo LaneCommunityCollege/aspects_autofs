@@ -1,0 +1,20 @@
+---
+- name: RedHat - Set auto packages state with yum
+  when: ansible_os_family == "RedHat" and item.value.state != 'default' and item.value.state != 'purged' and item.value.RedHat is defined
+  yum:
+    pkg: "{{ item.value.RedHat }}"
+    state: "{{ item.value.state }}"
+  with_dict: "{{ aspects_autofs_packages }}"
+  tags:
+    - aspects_autofs
+    - aspects_autofs_packages
+
+- name: RedHat - Purge packages with state="purged" with apt
+  when: ansible_os_family == "RedHat" and item.value.state == 'purged' and item.value.RedHat is defined
+  yum:
+    pkg: "{{ item.value.RedHat }}"
+    state: "absent"
+  with_dict: "{{ aspects_autofs_packages }}"
+  tags:
+    - aspects_autofs
+    - aspects_autofs_packages

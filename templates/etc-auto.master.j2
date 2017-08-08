@@ -27,6 +27,12 @@
 #
 #+auto.master
 
+{% if aspects_autofs_master_line_default_enabled %}
+{{ aspects_autofs_master_line_default }}
+{% endif %}
+
 {% for mount in aspects_autofs_mounts|default({}) %}
+{% if aspects_autofs_mounts[mount].masterline is defined %}
 {{ aspects_autofs_mounts[mount].masterline }}
+{% endif %}
 {% endfor %}
