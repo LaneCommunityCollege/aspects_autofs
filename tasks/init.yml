@@ -1,4 +1,16 @@
 ---
+- name: "Ensure mount points paths match their defined state."
+  when: aspects_autofs_mount_point_paths is defined
+  file:
+    state: "{{ item.value.state }}"
+    path: "{{ item.value.path }}"
+    owner: "{{ item.value.owner }}"
+    group: "{{ item.value.group }}"
+    mode: "{{ item.value.mode }}"
+  with_dict: "{{ aspects_autofs_mount_point_paths }}"
+  tags:
+    - aspects_autofs
+
 - name: "Set /etc/auto.master template"
   template:
     src: "etc-auto.master.j2"
@@ -9,7 +21,6 @@
   notify: restart autofs
   tags:
     - aspects_autofs
-    - aspects_autofs_packages
 
 - name: "Set /etc/auto.misc template"
   template:
@@ -21,4 +32,3 @@
   notify: restart autofs
   tags:
     - aspects_autofs
-    - aspects_autofs_packages
