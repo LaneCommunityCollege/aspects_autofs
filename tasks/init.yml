@@ -1,17 +1,4 @@
 ---
-# tasks file for .
-- include: manageDebianPackages.yml
-  when: ansible_os_family == "Debian"
-  tags:
-    - aspects_autofs
-    - aspects_autofs_packages
-
-- include: manageCentOSPackages.yml
-  when: ansible_distribution == "CentOS"
-  tags:
-    - aspects_autofs
-    - aspects_autofs_packages
-
 - name: "Set /etc/auto.master template"
   template:
     src: "etc-auto.master.j2"

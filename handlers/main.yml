@@ -21,6 +21,7 @@
   service:
     name: "autofs"
     state: "stopped"
+    enabled: "no"
   tags:
   - aspects_autofs
   - aspects_autofs_handlers

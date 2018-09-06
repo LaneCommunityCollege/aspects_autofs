@@ -1,9 +1,13 @@
 ---
 aspects_autofs_enabled: False
-aspects_autofs_packages:
+aspects_packages_packages:
   autofs:
     state: "present"
-    Debian: "autofs"
-    RedHat: "autofs"
+    Ubuntu:
+      1404: "autofs"
+      1604: "autofs"
+      1804: "autofs"
+    CentOS:
+      7: "autofs"
 aspects_autofs_master_line_default_enabled: True
 aspects_autofs_master_line_default: "/- /etc/auto.misc --timeout 60"
