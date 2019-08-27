@@ -7,7 +7,7 @@
     owner: "{{ item.value.owner }}"
     group: "{{ item.value.group }}"
     mode: "{{ item.value.mode }}"
-  with_dict: "{{ aspects_autofs_mount_point_paths }}"
+  loop: "{{ aspects_autofs_mount_point_paths|dict2items }}"
   tags:
     - aspects_autofs
 
