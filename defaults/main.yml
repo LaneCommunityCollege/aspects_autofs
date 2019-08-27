@@ -14,3 +14,4 @@ aspects_packages_packages:
       7: "autofs"
 aspects_autofs_master_line_default_enabled: True
 aspects_autofs_master_line_default: "/- /etc/auto.misc --timeout 60"
+aspects_autofs_mount_point_paths: {}
