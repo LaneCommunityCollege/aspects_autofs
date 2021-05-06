@@ -6,8 +6,10 @@ aspects_packages_packages:
     Ubuntu:
       1604: "autofs"
       1804: "autofs"
+      2004: "autofs"
     Debian:
       9: "autofs"
+      10: "autofs"
     CentOS:
       7: "autofs"
     OracleLinux:
