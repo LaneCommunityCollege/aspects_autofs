@@ -2,12 +2,12 @@
 - name: "Ensure mount points paths match their defined state."
   when: aspects_autofs_mount_point_paths is defined
   file:
-    state: "{{ item.value.state }}"
-    path: "{{ item.value.path }}"
-    owner: "{{ item.value.owner }}"
-    group: "{{ item.value.group }}"
-    mode: "{{ item.value.mode }}"
-  loop: "{{ aspects_autofs_mount_point_paths|dict2items }}"
+    state: "{{ item.1.state }}"
+    path: "{{ item.1.path }}"
+    owner: "{{ item.1.owner }}"
+    group: "{{ item.1.group }}"
+    mode: "{{ item.1.mode }}"
+  loop: "{{ aspects_autofs_mount_point_paths | dictsort }}"
   tags:
     - aspects_autofs
 
