@@ -6,6 +6,8 @@ A role to manage autofs mounts.
 
 Set ```hash_behaviour=merge``` in your ansible.cfg file.
 
+For NFS mounts, install `nfs-utils` on RedHat family systems and `nfs-common` on Debian family systems.
+
 ## Role Variables
 
 ### aspects_autofs_enabled
