@@ -19,6 +19,8 @@ galaxy_info:
   - name: OracleLinux
     versions:
       - 7
+      - 8
+      - 9
 
   galaxy_tags: ['system']
     # List tags for your role here, one per line. A tag is
